@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Banking UI</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f5f7fa;
+      padding: 1rem;
+    }
+
+    .banking-container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Balance Section */
+    .balance-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Input Section */
+    .input-section {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .input-section input[type="number"] {
+      flex: 1 1 150px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-section input[type="number"]:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    /* Buttons Section */
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .buttons button {
+      flex: 1 1 140px;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: white;
+    }
+
+    .buttons button.deposit {
+      background-color: #27ae60;
+    }
+
+    .buttons button.deposit:hover {
+      background-color: #219150;
+    }
+
+    .buttons button.withdraw {
+      background-color: #e74c3c;
+    }
+
+    .buttons button.withdraw:hover {
+      background-color: #c0392b;
+    }
+
+    /* Responsive tweaks */
+
+    @media (max-width: 480px) {
+      .banking-container {
+        padding: 1.5rem;
+        max-width: 100%;
+      }
+
+      .balance-section {
+        font-size: 1.3rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+
+      .input-section {
+        flex-direction: column;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .buttons button,
+      .input-section input[type="number"] {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="banking-container" role="main" aria-label="Banking interface">
+    <section class="balance-section" aria-live="polite">
+      <span>Current Balance:</span>
+      <span>$5,000.00</span>
+    </section>
+
+    <section class="input-section">
+      <label for="transaction-amount" class="visually-hidden">Transaction Amount</label>
+      <input
+        type="number"
+        id="transaction-amount"
+        name="transaction-amount"
+        placeholder="Enter amount"
+        min="0"
+        step="0.01"
+        aria-describedby="amount-help"
+      />
+    </section>
+
+    <section class="buttons">
+      <button type="button" class="deposit">Deposit</button>
+      <button type="button" class="withdraw">Withdraw</button>
+    </section>
+  </main>
+
+  <style>
+    /* Accessibility helper to hide label visually but keep it accessible */
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+  </style>
+</body>
+</html>
